@@ -1,0 +1,80 @@
+project_name: <project-name>
+
+proxmox:
+  endpoint: "https://<proxmox-host>:8006/api2/json"
+  api_token: "root@pam!<token-id>=<token>"
+  node: "pve-core"
+  template_id: <template-id>
+
+vms:
+  - name: <vm-name>
+    cores: 2
+    memory: 2048
+    user: ubuntu
+    password: ubuntu
+    ssh_keys:
+      - "<ssh-pubKey>"
+
+    disks:
+      - datastore: local-lvm
+        interface: scsi0
+        size: 20
+
+      - datastore: shared-disk
+        interface: scsi1
+        size: 40
+
+    network:
+      - bridge: vmbr0
+        ip: dhcp
+
+      - bridge: vmbr1
+
+  - name: <vm-name>
+    cores: 2
+    memory: 2048
+    user: ubuntu
+    password: ubuntu
+    ssh_keys:
+      - "<ssh-pubKey>"
+
+    disks:
+      - datastore: local-lvm
+        interface: scsi0
+        size: 20
+
+      - datastore: shared-disk
+        interface: scsi1
+        size: 40
+
+    network:
+      - bridge: vmbr0
+        ip: dhcp
+
+      - bridge: vmbr1
+        ip: "192.168.12.200/24"
+        gateway:
+
+  - name: <vm-name>
+    cores: 2
+    memory: 2048
+    user: ubuntu
+    password: ubuntu
+    ssh_keys:
+      - "<ssh-pubKey>"
+
+    disks:
+      - datastore: local-lvm
+        interface: scsi0
+        size: 20
+
+      - datastore: shared-disk
+        interface: scsi1
+        size: 40
+
+    network:
+      - bridge: vmbr0
+        ip: dhcp
+
+      - bridge: vmbr1
+        ip: "192.168.12.100/24"
