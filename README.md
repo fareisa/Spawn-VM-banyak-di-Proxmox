@@ -255,7 +255,7 @@ Then use:
 - [Terraform Proxmox Provider (bpg/proxmox) Documentation](https://registry.terraform.io/providers/bpg/proxmox/latest/docs)
 - [Provisioning Proxmox Virtual Machines with Terraform](https://medium.com/@DatBoyBlu3/provisioning-proxmox-virtual-machines-with-terraform-d9e9c549f947)
 - [Proxmox VM Template](https://gist.github.com/zidenis/dfc05d9fa150ae55d7c87d870a0306c5)
-- [Bash Script Tips and Tricks](https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425?permalink_comment_id=3799230)
+- [Pipefail Explanation](https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425?permalink_comment_id=3799230)
 
 ## For Next
 
