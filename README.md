@@ -112,13 +112,13 @@ vms:
     ssh_keys:                        # SSH public keys (required for remote access)
       - "<ssh-pubKey>"
     
-    disks:                           # (Will use default disk from template if null) Disk interfaces
+    disks:                           # Disk interfaces
       - datastore: local-lvm         # Datastore ID (From Proxmox resource target)
         interface: scsi0             # Disk interface (must be unique per VM)
         size: 20                     # Size in GB
     
-    network:                         # (Will use default network from template if null) Network interfaces
-      - bridge: vmbr0                # Virtual bridge
+    network:                         # Network interfaces
+      - bridge: vmbr0                # Available virtual bridge
         ip: dhcp                     # IP config (dhcp, IP/CIDR, Max 1 DHCP per VM)
         gateway: 192.168.1.1         # Gateway (max 1 per VM)
 ```
