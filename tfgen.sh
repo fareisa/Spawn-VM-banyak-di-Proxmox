@@ -3,7 +3,7 @@ set -eo pipefail
 
 INPUT="vm.yaml"
 OUTPUT_DIR="."
-TEMPLATE="main.tf.tpl"
+TEMPLATE="./main-tf.tpl"
 
 PROJECT=$(yq -r '.project_name' "$INPUT")
 OUT_PATH="$OUTPUT_DIR/$PROJECT"
