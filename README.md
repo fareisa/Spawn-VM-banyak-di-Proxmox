@@ -14,7 +14,7 @@ This project is created because i have issue with proxmox for spawning multiple 
 ### Prerequisites
 
 - Terraform installed
-- `yq` CLI tool for YAML parsing
+- `yq` CLI tool for YAML parsing from (https://github.com/mikefarah/yq)
 - `envsubst` for template substitution
 - Proxmox API credentials
 - Vm template
