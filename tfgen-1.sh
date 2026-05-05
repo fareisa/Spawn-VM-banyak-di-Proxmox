@@ -5,7 +5,7 @@ set -euo pipefail
 INPUT=""
 OUTPUT_DIR="."
 FORCE=false
-TEMPLATE="main.tf.tpl"
+TEMPLATE="./main-tf.tpl"
 
 # --- Help ---
 show_help() {
