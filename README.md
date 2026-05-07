@@ -42,7 +42,7 @@ chmod +x tfgen.sh
 **Default values**
 - INPUT="vm.yaml"
 - OUTPUT_DIR="."
-- TEMPLATE="main.tf.tpl"
+- TEMPLATE="main-tf.tpl"
 
 ### Option 2: Interactive Generator (tfgen-1.sh)
 
