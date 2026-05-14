@@ -141,10 +141,16 @@ for ((i=0;i<VM_COUNT;i++)); do
       exit 1
     fi
 
-    if (( DHCP_COUNT == NET_COUNT )); then
+#    if (( DHCP_COUNT == NET_COUNT )); then
+#      echo "Error in vms[$i] ($VM_NAME): full DHCP not allowed"
+#      exit 1
+#    fi
+
+    if (( DHCP_COUNT == NET_COUNT && DHCP_COUNT > 1 )); then
       echo "Error in vms[$i] ($VM_NAME): full DHCP not allowed"
       exit 1
-    fi
+    fi  
+  
   fi
 done
 
