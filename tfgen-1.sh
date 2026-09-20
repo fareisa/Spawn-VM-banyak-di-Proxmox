@@ -143,18 +143,16 @@ echo "Validation OK"
 # --- Output ---
 PROJECT=$(yq -r '.project_name' "$INPUT")
 OUT_PATH="$OUTPUT_DIR/$PROJECT"
+TARGET_FILE="$OUT_PATH/main.tf"
 
-if [[ -d "$OUT_PATH" ]]; then
-  if [[ "$FORCE" == true ]]; then
-    rm -rf "$OUT_PATH"
-  else
-    read -p "Replace $OUT_PATH? [y/N]: " c
-    [[ ! "$c" =~ ^[yY]$ ]] && exit 0
-    rm -rf "$OUT_PATH"
-  fi
-fi
-
+# Ensure the output directory exists
 mkdir -p "$OUT_PATH"
+
+# Prompt if main.tf already exists
+if [[ -f "$TARGET_FILE" && "$FORCE" != true ]]; then
+  read -p "$TARGET_FILE already exists. Overwrite? [y/N]: " c
+  [[ ! "$c" =~ ^[yY]$ ]] && exit 0
+fi
 
 # --- Export ---
 export endpoint=$(yq -r '.proxmox.endpoint' "$INPUT")
@@ -165,6 +163,6 @@ export vms_json=$(yq -o=json '.vms' "$INPUT")
 
 # --- Render ---
 echo "Rendering Terraform..."
-envsubst '$endpoint $api_token $node $template_id $vms_json' < "$TEMPLATE" > "$OUT_PATH/main.tf"
+envsubst '$endpoint $api_token $node $template_id $vms_json' < "$TEMPLATE" > "$TARGET_FILE"
 
-echo "Done → $OUT_PATH/main.tf"
+echo "Done → $TARGET_FILE"
