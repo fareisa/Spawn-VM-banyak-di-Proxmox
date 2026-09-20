@@ -115,21 +115,6 @@ for ((i=0;i<VM_COUNT;i++)); do
       exit 1
     fi
 
-    # if (( GW_COUNT == 1 && GW_INDEX != 0 )); then
-    #   echo "Error: gateway must be on network[0]"
-    #   exit 1
-    # fi
-
-    # FIRST_IP=$(yq -r ".vms[$i].network[0].ip // \"\"" "$INPUT")
-
-    # if [[ "$FIRST_IP" == "dhcp" ]]; then
-    #   if (( GW_COUNT > 0 )); then
-    #     echo "Error: cannot define gateway when network[0] uses DHCP"
-    #     exit 1
-    #   fi
-    # fi
-
-
     if (( DHCP_COUNT >= 1 && GW_COUNT >= 1 )); then
       echo "Error in vms[$i] ($VM_NAME): cannot mix DHCP and gateway in network configuration"
       exit 1
@@ -140,11 +125,6 @@ for ((i=0;i<VM_COUNT;i++)); do
       echo "Error: multiple gateways in vms[$i] ($VM_NAME)"
       exit 1
     fi
-
-#    if (( DHCP_COUNT == NET_COUNT )); then
-#      echo "Error in vms[$i] ($VM_NAME): full DHCP not allowed"
-#      exit 1
-#    fi
 
     if (( DHCP_COUNT == NET_COUNT && DHCP_COUNT > 1 )); then
       echo "Error in vms[$i] ($VM_NAME): full DHCP not allowed"
